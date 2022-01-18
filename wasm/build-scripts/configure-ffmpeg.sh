@@ -21,9 +21,27 @@ FLAGS=(
   --enable-libwebp        # enable libwebp
   --enable-libass         # enable libass
   --enable-libfribidi     # enable libfribidi
-  # --enable-libaom         # enable libaom
+  # --enable-libaom       # enable libaom
+
+  --disable-all
+
+  --enable-bsf=h264_mp4toannexb
+  --enable-ffmpeg
+  --enable-avcodec
+  --enable-avformat
+  --enable-avutil
+  --enable-swresample
+  --enable-swscale
+  --enable-avfilter
+  --enable-libx264
+
+  --enable-encoder=libx264,mpeg4,mov,gif,h264
+  --enable-decoder=rawvideo,hevc,h264,mpeg4,gif
+  --enable-parser=mpeg4video,mpegaudio,gif
+  --enable-demuxer=mov,gif,concat,image2,image2pipe,mpegps
+  --enable-muxer=mp4,gif,mov
+  --enable-protocol=file
+  --enable-filter=scale,overlay,fps,movie
 )
 echo "FFMPEG_CONFIG_FLAGS=${FLAGS[@]}"
 emconfigure ./configure "${FLAGS[@]}"
-
-#foo

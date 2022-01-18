@@ -21,10 +21,11 @@ FLAGS=(
   --enable-libwebp        # enable libwebp
   --enable-libass         # enable libass
   --enable-libfribidi     # enable libfribidi
+  --enable-libavdevice
+  --enable-libpostproc
   # --enable-libaom       # enable libaom
 
   --disable-all
-
   --enable-bsf=h264_mp4toannexb
   --enable-ffmpeg
   --enable-avcodec

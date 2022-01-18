@@ -25,3 +25,5 @@ FLAGS=(
 )
 echo "FFMPEG_CONFIG_FLAGS=${FLAGS[@]}"
 emconfigure ./configure "${FLAGS[@]}"
+
+#foo

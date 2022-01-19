@@ -21,8 +21,6 @@ FLAGS=(
   --enable-libwebp        # enable libwebp
   --enable-libass         # enable libass
   --enable-libfribidi     # enable libfribidi
-  --enable-libavdevice
-  --enable-libpostproc
   # --enable-libaom       # enable libaom
 
   --disable-all
@@ -45,4 +43,6 @@ FLAGS=(
   --enable-filter=scale,overlay,fps,movie
 )
 echo "FFMPEG_CONFIG_FLAGS=${FLAGS[@]}"
+
+emcondifure ./configure --help
 emconfigure ./configure "${FLAGS[@]}"

@@ -44,5 +44,5 @@ FLAGS=(
 )
 echo "FFMPEG_CONFIG_FLAGS=${FLAGS[@]}"
 
-emcondifure ./configure --help
+emconfigure ./configure --help
 emconfigure ./configure "${FLAGS[@]}"

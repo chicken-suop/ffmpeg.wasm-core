@@ -3,7 +3,7 @@
 cmds=()
 
 # Detect what dependencies are missing.
-for cmd in autoconf automake libtool pkg-config ragel
+for cmd in autoconf automake libtool pkg-config ragel yasm
 do
   if ! command -v $cmd &> /dev/null
   then

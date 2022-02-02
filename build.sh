@@ -15,6 +15,7 @@ run-all() {
     # install dependencies
     install-deps
     build-zlib
+    build-openh264
     build-x264
     build-x265
     build-libvpx

@@ -3,9 +3,11 @@ on:
   push:
     branches:
       - n4.3.1-wasm
+      - n4.3.1-wasm-openh264
   pull_request:
     branches:
       - n4.3.1-wasm
+      - n4.3.1-wasm-openh264
 
 env:
   FFMPEG_ST: yes

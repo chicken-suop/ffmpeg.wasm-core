@@ -22,8 +22,8 @@ jobs:
       max-parallel: 1
       matrix:
         script:
-          - build-zlib
           - build-openh264
+          - build-zlib
           - build-x265
           - build-libvpx
           - build-wavpack

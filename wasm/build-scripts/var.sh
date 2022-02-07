@@ -36,7 +36,7 @@ fi
 # Unset OPTIM_FLAGS can speed up build
 # OPTIM_FLAGS=""
 
-CFLAGS_BASE="$OPTIM_FLAGS -I$BUILD_DIR/include"
+CFLAGS_BASE="$OPTIM_FLAGS -I$BUILD_DIR/include -I/usr/local"
 CFLAGS="$CFLAGS_BASE -s USE_PTHREADS=1"
 
 if [[ "$FFMPEG_ST" == "yes" ]]; then

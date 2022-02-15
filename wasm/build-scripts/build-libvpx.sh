@@ -26,6 +26,4 @@ echo "CONF_FLAGS=${CONF_FLAGS[@]}"
 
 (cd $LIB_PATH && emconfigure ./configure "${CONF_FLAGS[@]}")
 emmake make -C $LIB_PATH clean
-ls -la /src/build/lib
-ls -la /src/build/lib/pkgconfig
 emmake make -C $LIB_PATH install -j

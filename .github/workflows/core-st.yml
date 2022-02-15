@@ -22,10 +22,10 @@ jobs:
       max-parallel: 1
       matrix:
         script:
+          - build-libvpx
           - build-openh264
           - build-zlib
           - build-x265
-          - build-libvpx
           - build-wavpack
           - build-lame
           - build-fdk-aac

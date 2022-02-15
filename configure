@@ -8,7 +8,7 @@
 #
 
 # Set PKG_CONFIG_PATH manually
-export PKG_CONFIG_PATH=$PWD/build/lib/pkgconfig
+export PKG_CONFIG_PATH=$PWD/build/lib/pkgconfig:/usr/local/lib/pkgconfig/
 
 # Prevent locale nonsense from breaking basic text processing.
 LC_ALL=C

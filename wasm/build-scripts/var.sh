@@ -49,6 +49,7 @@ export CXXFLAGS=$CFLAGS
 export LDFLAGS="$CFLAGS -L$BUILD_DIR/lib"
 export STRIP="llvm-strip"
 export EM_PKG_CONFIG_PATH=$EM_PKG_CONFIG_PATH
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
 FFMPEG_CONFIG_FLAGS_BASE=(
   --target-os=none        # use none to prevent any os specific configurations
@@ -80,3 +81,4 @@ echo "EMSDK=$EMSDK"
 echo "FFMPEG_ST=$FFMPEG_ST"
 echo "CFLAGS(CXXFLAGS)=$CFLAGS"
 echo "BUILD_DIR=$BUILD_DIR"
+echo "PKG_CONFIG_PATH=$PKG_CONFIG_PATH"

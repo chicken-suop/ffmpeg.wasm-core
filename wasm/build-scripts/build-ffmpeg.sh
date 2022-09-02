@@ -26,15 +26,15 @@ FLAGS=(
   -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lm -lharfbuzz -lfribidi -lass -lopenh264 -lx265 -lvpx -lwavpack -lmp3lame -lfdk-aac -lvorbis -lvorbisenc -lvorbisfile -logg -ltheora -ltheoraenc -ltheoradec -lz -lfreetype -lopus -lwebp
   -s USE_SDL=2                                  # use SDL2
   -s INVOKE_RUN=0                               # not to run the main() in the beginning
-  -s EXIT_RUNTIME=1                             # exit runtime after execution
+  -s EXIT_RUNTIME=0                             # exit runtime after execution
   -s MODULARIZE=1                               # use modularized version to be more flexible
   -s EXPORT_NAME="createFFmpegCore"             # assign export name for browser
   -s EXPORTED_FUNCTIONS="[_main]"  # export main and proxy_main funcs
-  -s EXPORTED_RUNTIME_METHODS="[FS, cwrap, ccall, setValue, writeAsciiToMemory]"   # export preamble funcs
-#   -s INITIAL_MEMORY=2146435072                  # 2146435072 bytes ~= 2 GB
-#   -s TOTAL_MEMORY=33554432
+  -s EXPORTED_RUNTIME_METHODS=FS,FS_mount,FS_unmount,FS_filesystems,cwrap,ccall,setValue,writeAsciiToMemory,lengthBytesUTF8,stringToUTF8,UTF8ToString # export preamble funcs
   -s ALLOW_MEMORY_GROWTH=1
-  -s INITIAL_MEMORY=33554432      # 33554432 bytes = 32 MB
+  -s INITIAL_MEMORY=536870912                  # 536870912 bytes ~= .5 GB
+  -s MAXIMUM_MEMORY=2146435072                 # 64 KB * 1024 * 16 * 2047 = 2146435072 bytes
+    -lworkerfs.js
   --pre-js wasm/src/pre.js
   --post-js wasm/src/post.js
   $OPTIM_FLAGS

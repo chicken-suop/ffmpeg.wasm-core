@@ -8,8 +8,6 @@ Module['quit'] = function(status) {
   throw new ExitStatus(status);
 }
 
-Module['exit'] = exit;
-
 /**
  * Disable all console output, might need to enable it
  * for debugging

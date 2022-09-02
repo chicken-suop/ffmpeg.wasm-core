@@ -21,7 +21,6 @@ jobs:
       matrix:
         script:
           - build-libvpx
-          - build-openh264
           - build-zlib
           - build-x265
           - build-wavpack

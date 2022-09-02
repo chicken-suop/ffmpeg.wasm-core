@@ -34,7 +34,7 @@ FLAGS=(
   -s ALLOW_MEMORY_GROWTH=1
   -s INITIAL_MEMORY=536870912                  # 536870912 bytes ~= .5 GB
   -s MAXIMUM_MEMORY=2146435072                 # 64 KB * 1024 * 16 * 2047 = 2146435072 bytes
-  -lworkerfs.js
+    -lworkerfs.js
   --pre-js wasm/src/pre.js
   --post-js wasm/src/post.js
   $OPTIM_FLAGS

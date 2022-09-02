@@ -1,0 +1,95 @@
+name: Build FFmpeg.wasm (Multiple Thread)
+on:
+  push:
+    branches:
+      - n4.3.1-wasm
+      - n4.3.1-wasm-openh264
+  pull_request:
+    branches:
+      - n4.3.1-wasm
+      - n4.3.1-wasm-openh264
+
+env:
+  FFMPEG_ST: no
+  DIST_PATH: wasm/packages/core-mt/dist
+  CACHE_KEY_PREFIX: ffmpeg.wasm-core-mt
+
+jobs:
+  build-libs:
+    strategy:
+      max-parallel: 1
+      matrix:
+        script:
+          - build-libvpx
+          - build-openh264
+          - build-zlib
+          - build-x265
+          - build-wavpack
+          - build-lame
+          - build-fdk-aac
+          - build-ogg
+          - build-vorbis
+          - build-theora
+          - build-opus
+          - build-libwebp
+          - build-freetype2
+          - build-fribidi
+          - build-harfbuzz
+          - build-libass
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Get commit hash
+        id: get-commit-hash
+        run: |
+          echo "::set-output name=hash::$(git rev-parse --short HEAD)"
+      - name: Cache libs
+        uses: actions/cache@v2
+        with:
+          path: |
+            build
+            wasm/cache
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ steps.get-commit-hash.outputs.hash }}-${{ matrix.script }}
+          restore-keys: |
+            ${{ env.CACHE_KEY_PREFIX }}-${{ steps.get-commit-hash.outputs.hash }}-
+      - name: List cached libs
+        run: ls -R build || true
+      - name: Build FFMpeg Libs
+        run: bash build-with-docker.sh install-deps ${{ matrix.script }}
+  build-ffmpeg:
+    runs-on: ubuntu-latest
+    needs: build-libs
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Get commit hash
+        id: get-commit-hash
+        run: |
+          echo "::set-output name=hash::$(git rev-parse --short HEAD)"
+      - name: Cache multiple paths
+        uses: actions/cache@v2
+        env:
+          GIT_HASH: $(git rev-parse --short HEAD)
+        with:
+          path: |
+            build
+            wasm/cache
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ steps.get-commit-hash.outputs.hash }}-ffmpeg
+          restore-keys: |
+            ${{ env.CACHE_KEY_PREFIX }}-${{ steps.get-commit-hash.outputs.hash }}-
+      - name: List cached libs
+        run: ls -R build || true
+      - name: Build FFMpeg
+        run: |
+          bash build-with-docker.sh \
+            install-deps \
+            configure-ffmpeg \
+            build-ffmpeg
+      - uses: actions/upload-artifact@master
+        with:
+          name: ffmpeg-core
+          path: ${{ env.DIST_PATH }}
+

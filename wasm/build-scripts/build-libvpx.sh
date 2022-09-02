@@ -18,6 +18,8 @@ CONF_FLAGS=(
   --disable-docs                                     # not to build docs
   --disable-unit-tests                               # not to do unit tests
   --disable-dependency-tracking                      # speed up one-time build
+  --extra-cflags="$CFLAGS"                           # flags to use pthread and code optimization
+  --extra-cxxflags="$CXXFLAGS"                       # flags to use pthread and code optimization
   ${EXTRA_CONF_FLAGS-}
 )
 echo "CONF_FLAGS=${CONF_FLAGS[@]}"

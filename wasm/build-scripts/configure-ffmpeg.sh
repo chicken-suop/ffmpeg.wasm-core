@@ -32,7 +32,6 @@ FLAGS=(
   --enable-swresample
   --enable-swscale
   --enable-avfilter
-  --enable-libx264
 
   --enable-encoder=libx264,mpeg4,mov,gif,h264
   --enable-decoder=rawvideo,hevc,h264,mpeg4,gif

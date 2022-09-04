@@ -22,6 +22,7 @@ jobs:
         script:
           - build-libvpx
           - build-zlib
+          - build-x264
           - build-x265
           - build-wavpack
           - build-lame

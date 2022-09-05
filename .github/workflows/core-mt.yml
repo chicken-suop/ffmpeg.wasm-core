@@ -11,8 +11,8 @@ on:
 
 env:
   FFMPEG_ST: no
-  DIST_PATH: wasm/packages/core-mt/dist
-  CACHE_KEY_PREFIX: ffmpeg.wasm-core-mt
+  DIST_PATH: wasm/packages/core/dist
+  CACHE_KEY_PREFIX: ffmpeg.wasm-core
 
 jobs:
   build-libs:

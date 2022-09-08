@@ -22,7 +22,6 @@ FLAGS=(
   --enable-libass         # enable libass
   --enable-libfribidi     # enable libfribidi
   --enable-avdevice       # enable lavfi and anullsrc
-  --enable-avfilter-lavf  # enable lavfi and anullsrc
 
   --disable-all
   --enable-bsf=h264_mp4toannexb
@@ -33,6 +32,7 @@ FLAGS=(
   --enable-swresample
   --enable-swscale
   --enable-avfilter
+  --enable-indev=lavfi
 
   --enable-encoder=libx264,mpeg4,mov,gif,h264
   --enable-decoder=rawvideo,hevc,h264,mpeg4,gif

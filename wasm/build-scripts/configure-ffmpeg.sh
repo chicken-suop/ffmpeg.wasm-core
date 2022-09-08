@@ -21,6 +21,7 @@ FLAGS=(
   --enable-libwebp        # enable libwebp
   --enable-libass         # enable libass
   --enable-libfribidi     # enable libfribidi
+  --enable-avdevice       # enable lavfi and anullsrc
   # --enable-libaom       # enable libaom
 
   --disable-all

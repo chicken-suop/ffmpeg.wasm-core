@@ -23,7 +23,7 @@ FLAGS=(
   --enable-libfribidi     # enable libfribidi
   --enable-avdevice       # enable lavfi and anullsrc
 
-  --disable-all
+  # --disable-all
   --enable-bsf=h264_mp4toannexb
   --enable-ffmpeg
   --enable-avcodec

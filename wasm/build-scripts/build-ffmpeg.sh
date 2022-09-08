@@ -5,16 +5,23 @@ source $(dirname $0)/var.sh
 
 if [[ "$FFMPEG_ST" != "yes" ]]; then
   mkdir -p wasm/packages/core/dist
+  EXPORTED_FUNCTIONS="[_main, _proxy_main]"
   EXTRA_FLAGS=(
     -pthread
-    -s USE_PTHREADS=1                             # enable pthreads support
-    -s PROXY_TO_PTHREAD=1                         # detach main() from browser/UI main thread
+    -s USE_PTHREADS=1											    	# enable pthreads support
+    -s PROXY_TO_PTHREAD=1												# detach main() from browser/UI main thread
     -o wasm/packages/core/dist/ffmpeg-core.js
+    -s INITIAL_MEMORY=1073741824								# 1GB
+    -lworkerfs.js
   )
 else
   mkdir -p wasm/packages/core-st/dist
+  EXPORTED_FUNCTIONS="[_main]"
   EXTRA_FLAGS=(
     -o wasm/packages/core-st/dist/ffmpeg-core.js
+    -s INITIAL_MEMORY=33554432									# 32MB
+		-s MAXIMUM_MEMORY=1073741824								# 1GB
+		-s ALLOW_MEMORY_GROWTH=1
   )
 fi
 FLAGS=(
@@ -24,17 +31,13 @@ FLAGS=(
   -Qunused-arguments
   fftools/ffmpeg_opt.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/cmdutils.c fftools/ffmpeg.c
   -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lm -lharfbuzz -lfribidi -lass -lx264 -lx265 -lvpx -lwavpack -lmp3lame -lfdk-aac -lvorbis -lvorbisenc -lvorbisfile -logg -ltheora -ltheoraenc -ltheoradec -lz -lfreetype -lopus -lwebp
-  -s USE_SDL=2                                  # use SDL2
-  -s INVOKE_RUN=0                               # not to run the main() in the beginning
-  -s EXIT_RUNTIME=1                             # exit runtime after execution
-  -s MODULARIZE=1                               # use modularized version to be more flexible
-  -s EXPORT_NAME="createFFmpegCore"             # assign export name for browser
-  -s EXPORTED_FUNCTIONS="[_main]"  # export main and proxy_main funcs
-  -s EXPORTED_RUNTIME_METHODS="[FS, cwrap, ccall, setValue, writeAsciiToMemory]"   # export preamble funcs
-#   -s INITIAL_MEMORY=2146435072                  # 2146435072 bytes ~= 2 GB
-#   -s TOTAL_MEMORY=33554432
-  -s ALLOW_MEMORY_GROWTH=1
-  -s INITIAL_MEMORY=33554432      # 33554432 bytes = 32 MB
+  -s USE_SDL=2									          			# use SDL2
+  -s INVOKE_RUN=0							               		# not to run the main() in the beginning
+  -s EXIT_RUNTIME=1							          			# exit runtime after execution
+  -s MODULARIZE=1											          # use modularized version to be more flexible
+  -s EXPORT_NAME="createFFmpegCore"		          # assign export name for browser
+  -s EXPORTED_FUNCTIONS="$EXPORTED_FUNCTIONS"		# export main and proxy_main funcs
+  -s EXPORTED_RUNTIME_METHODS="[FS, FS_mount, FS_unmount, FS_filesystems, cwrap, ccall, setValue, writeAsciiToMemory, lengthBytesUTF8, stringToUTF8, UTF8ToString]"												# export preamble funcs
   --pre-js wasm/src/pre.js
   --post-js wasm/src/post.js
   $OPTIM_FLAGS

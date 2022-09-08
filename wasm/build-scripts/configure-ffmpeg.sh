@@ -22,7 +22,7 @@ FLAGS=(
   --enable-libass         # enable libass
   --enable-libfribidi     # enable libfribidi
   --enable-avdevice       # enable lavfi and anullsrc
-  # --enable-libaom       # enable libaom
+  --enable-avfilter-lavf  # enable lavfi and anullsrc
 
   --disable-all
   --enable-bsf=h264_mp4toannexb

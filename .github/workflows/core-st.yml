@@ -64,9 +64,9 @@ jobs:
           path: |
             build
             wasm/cache
-          key: ${{ env.CACHE_KEY_PREFIX }}-${{ steps.get-commit-hash.outputs.hash }}-${{ matrix.script }}
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ matrix.script }}
           restore-keys: |
-            ${{ env.CACHE_KEY_PREFIX }}-${{ steps.get-commit-hash.outputs.hash }}-
+            ${{ env.CACHE_KEY_PREFIX }}-
       - name: List cached libs
         run: ls -R build || true
       - name: Build FFMpeg Libs

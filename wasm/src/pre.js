@@ -12,4 +12,4 @@ Module['quit'] = function(status) {
  * Disable all console output, might need to enable it
  * for debugging
  */
-out = err = function() {}
+// out = err = function() {}

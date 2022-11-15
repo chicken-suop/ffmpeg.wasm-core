@@ -31,6 +31,7 @@ FLAGS=(
   -s EXPORT_NAME="createFFmpegCore"             # assign export name for browser
   -s EXPORTED_FUNCTIONS="[_main]"  # export main and proxy_main funcs
   -s EXPORTED_RUNTIME_METHODS=FS,FS_mount,FS_unmount,FS_filesystems,cwrap,ccall,setValue,writeAsciiToMemory,lengthBytesUTF8,stringToUTF8,UTF8ToString # export preamble funcs
+  -s ASSERTIONS=1
   -s ALLOW_MEMORY_GROWTH=1
   -s INITIAL_MEMORY=536870912                  # 512 MB
   -s MAXIMUM_MEMORY=4294967296                 # 4096 MB (4 GB)

@@ -5,6 +5,12 @@ source $(dirname $0)/var.sh
 
 FLAGS=(
   "${FFMPEG_CONFIG_FLAGS_BASE[@]}"
+  --disable-all
+  --disable-everything
+  --disable-network
+  --disable-swscale
+
+  --enable-small          # optimize for size instead of speed
   --enable-gpl            # required by x264
   --enable-nonfree        # required by fdk-aac
   --enable-zlib           # enable zlib
@@ -23,7 +29,6 @@ FLAGS=(
   --enable-libfribidi     # enable libfribidi
   --enable-avdevice       # enable lavfi and anullsrc
 
-  --disable-all
   --enable-bsf=h264_mp4toannexb
   --enable-ffmpeg
   --enable-avcodec

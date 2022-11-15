@@ -1,2 +1,2 @@
-Module['runningWorkers'] = PThread.runningWorkers;
+// Module['runningWorkers'] = PThread.runningWorkers;
 Module['exit'] = exit;

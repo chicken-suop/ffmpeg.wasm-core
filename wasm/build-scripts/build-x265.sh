@@ -9,6 +9,8 @@ BASE_FLAGS=(
   -DENABLE_LIBNUMA=OFF
   -DENABLE_SHARED=OFF
   -DENABLE_CLI=OFF
+  -DCMAKE_C_COMPILER_LAUNCHER=ccache
+  -DCMAKE_CXX_COMPILER_LAUNCHER=ccache
 )
 
 FLAGS_12BIT=(
@@ -44,7 +46,7 @@ emmake cmake ../.. -DCMAKE_CXX_FLAGS="$CXXFLAGS" ${FLAGS_12BIT[@]}
 emmake make clean
 emmake make -j
 
-cd ../10bit 
+cd ../10bit
 emmake cmake ../.. -DCMAKE_CXX_FLAGS="$CXXFLAGS" ${FLAGS_10BIT[@]}
 emmake make clean
 emmake make -j

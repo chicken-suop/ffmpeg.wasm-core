@@ -16,6 +16,8 @@ CM_FLAGS=(
   -DENABLE_TOOLS=0                              # disable tools
   -DCONFIG_RUNTIME_CPU_DETECT=0                 # disable cpu detect
   -DCONFIG_WEBM_IO=0                            # disable libwebm support
+  -DCMAKE_C_COMPILER_LAUNCHER=ccache
+  -DCMAKE_CXX_COMPILER_LAUNCHER=ccache
 )
 
 echo "CM_FLAGS=${CM_FLAGS[@]}"

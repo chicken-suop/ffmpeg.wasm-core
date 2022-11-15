@@ -32,8 +32,8 @@ FLAGS=(
   -s EXPORTED_FUNCTIONS="[_main]"  # export main and proxy_main funcs
   -s EXPORTED_RUNTIME_METHODS=FS,FS_mount,FS_unmount,FS_filesystems,cwrap,ccall,setValue,writeAsciiToMemory,lengthBytesUTF8,stringToUTF8,UTF8ToString # export preamble funcs
   -s ALLOW_MEMORY_GROWTH=1
-  -s INITIAL_MEMORY=536870912                  # 536870912 bytes ~= .5 GB
-  -s MAXIMUM_MEMORY=2146435072                 # 64 KB * 1024 * 16 * 2047 = 2146435072 bytes
+  -s INITIAL_MEMORY=536870912                  # 512 MB
+  -s MAXIMUM_MEMORY=4294967296                 # 4096 MB (4 GB)
     -lworkerfs.js
   --pre-js wasm/src/pre.js
   --post-js wasm/src/post.js

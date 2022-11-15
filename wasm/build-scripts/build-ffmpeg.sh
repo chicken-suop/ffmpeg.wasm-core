@@ -25,11 +25,11 @@ else
 fi
 FLAGS=(
   -I. -I./fftools -I$BUILD_DIR/include
-  -Llibavcodec -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Lharfbuzz -Llibass -Lfribidi -Llib -Llibswscale -Llibswresample -L$BUILD_DIR/lib
+  -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Lharfbuzz -Llibass -Lfribidi -Llib -Llibswscale -Llibswresample -L$BUILD_DIR/lib
   -Wno-deprecated-declarations -Wno-pointer-sign -Wno-implicit-int-float-conversion -Wno-switch -Wno-parentheses
   -Qunused-arguments
   fftools/ffmpeg_opt.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/cmdutils.c fftools/ffmpeg.c
-  -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lm -lharfbuzz -lfribidi -lass -lx264 -lx265 -lvpx -lwavpack -lmp3lame -lfdk-aac -lvorbis -lvorbisenc -lvorbisfile -logg -ltheora -ltheoraenc -ltheoradec -lz -lfreetype -lopus -lwebp
+  -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lm -lharfbuzz -lfribidi -lass -lx264 -lx265 -lvpx -lwavpack -lmp3lame -lfdk-aac -lvorbis -lvorbisenc -lvorbisfile -logg -ltheora -ltheoraenc -ltheoradec -lz -lfreetype -lopus -lwebp
   -s USE_SDL=2                                  # use SDL2
   -s INVOKE_RUN=0                               # not to run the main() in the beginning
   -s EXIT_RUNTIME=1                             # exit runtime after execution
@@ -38,8 +38,8 @@ FLAGS=(
   -s EXPORTED_FUNCTIONS="$EXPORTED_FUNCTIONS"  # export main and proxy_main funcs
   -s EXTRA_EXPORTED_RUNTIME_METHODS="[FS, cwrap, ccall, setValue, writeAsciiToMemory, lengthBytesUTF8, stringToUTF8, UTF8ToString]"   # export preamble funcs
   -s ASSERTIONS=1
-  --post-js wasm/src/post.js
   --pre-js wasm/src/pre.js
+  --post-js wasm/src/post.js
   $OPTIM_FLAGS
   ${EXTRA_FLAGS[@]}
 )

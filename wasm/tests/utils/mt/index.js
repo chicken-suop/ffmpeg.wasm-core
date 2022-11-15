@@ -3,7 +3,7 @@ let resolve = null;
 
 const ffmpeg = ({ core, args }) => new Promise((_resolve) => {
   core.ccall(
-    'emscripten_proxy_main',  // use emscripten_proxy_main if emscripten upgraded
+    'proxy_main',  // use emscripten_proxy_main if emscripten upgraded
     'number',
     ['number', 'number'],
     parseArgs(core, ['ffmpeg', '-hide_banner', '-nostdin', ...args]),
@@ -12,8 +12,8 @@ const ffmpeg = ({ core, args }) => new Promise((_resolve) => {
 
 });
 
-const getCore = () => (
-  require('../../../packages/core/dist/ffmpeg-core')({
+const getCore = (corename) => (
+  require(`../../../packages/${corename}/dist/ffmpeg-core`)({
     printErr: () => {},
     print: (m) => {
       if (m.startsWith('FFMPEG_END')) {

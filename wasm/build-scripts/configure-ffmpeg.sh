@@ -40,7 +40,7 @@ FLAGS=(
   --enable-indev=lavfi
 
   --enable-encoder=libx264,mpeg4,mov,gif,h264,aac
-  --enable-decoder=rawvideo,hevc,h264,mpeg4,gif
+  --enable-decoder=rawvideo,hevc,h264,mpeg4,gif,aac
   --enable-parser=mpeg4video,mpegaudio,gif
   --enable-demuxer=mov,gif,concat,image2,image2pipe,mpegps
   --enable-muxer=mp4,gif,mov

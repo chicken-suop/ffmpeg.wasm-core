@@ -8,6 +8,9 @@ FLAGS=(
   --disable-network
   --disable-autodetect
   --disable-debug
+  --disable-ffplay
+  --disable-ffprobe
+  --disable-doc
 
   # --enable-small          # optimize for size instead of speed
   --enable-gpl            # required by x264

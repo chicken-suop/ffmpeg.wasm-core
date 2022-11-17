@@ -5,7 +5,7 @@ source $(dirname $0)/var.sh
 
 FLAGS=(
   "${FFMPEG_CONFIG_FLAGS_BASE[@]}"
-  --disable-all
+  --disable-everything
   --disable-network
   --disable-autodetect
 
@@ -26,15 +26,6 @@ FLAGS=(
   --enable-libwebp        # enable libwebp
   --enable-libass         # enable libass
   --enable-libfribidi     # enable libfribidi
-  --enable-avdevice       # enable lavfi and anullsrc
-
-  --enable-ffmpeg
-  --enable-avcodec
-  --enable-avformat
-  --enable-avfilter
-  --enable-avutil
-  --enable-swresample
-  --enable-swscale
 
   --enable-indev=lavfi
   --enable-bsf=h264_mp4toannexb,aac_adtstoasc

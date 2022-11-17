@@ -7,6 +7,7 @@ FLAGS=(
   "${FFMPEG_CONFIG_FLAGS_BASE[@]}"
   --disable-network
   --disable-autodetect
+  --disable-debug
 
   # --enable-small          # optimize for size instead of speed
   --enable-gpl            # required by x264

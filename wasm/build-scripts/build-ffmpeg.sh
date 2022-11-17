@@ -21,7 +21,6 @@ else
 		-s INITIAL_MEMORY=536870912                  # 512 MB
 		-s MAXIMUM_MEMORY=4294967296                 # 4096 MB (4 GB)
 		-s ALLOW_MEMORY_GROWTH=1
-    -s MEMORY_GROWTH_GEOMETRIC_STEP=0.5
   )
 fi
 FLAGS=(

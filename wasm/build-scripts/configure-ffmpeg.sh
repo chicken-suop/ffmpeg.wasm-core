@@ -29,7 +29,6 @@ FLAGS=(
   --enable-libfribidi     # enable libfribidi
   --enable-avdevice       # enable lavfi and anullsrc
 
-  --enable-bsf=h264_mp4toannexb
   --enable-ffmpeg
   --enable-avcodec
   --enable-avformat
@@ -39,9 +38,10 @@ FLAGS=(
   --enable-avfilter
   --enable-indev=lavfi
 
+  --enable-bsf=h264_mp4toannexb,aac_adtstoasc
   --enable-encoder=libx264,mpeg4,mov,gif,h264,aac
   --enable-decoder=rawvideo,hevc,h264,mpeg4,gif,aac
-  --enable-parser=mpeg4video,mpegaudio,gif
+  --enable-parser=mpeg4video,mpegaudio,gif,aac
   --enable-demuxer=mov,gif,concat,image2,image2pipe,mpegps
   --enable-muxer=mp4,gif,mov
   --enable-protocol=file

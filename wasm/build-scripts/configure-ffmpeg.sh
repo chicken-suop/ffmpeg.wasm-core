@@ -40,14 +40,14 @@ FLAGS=(
   --enable-swresample
   --enable-swscale
 
-  --enable-indev=lavfi
-  --enable-bsf=h264_mp4toannexb,aac_adtstoasc
+  --enable-indev=lavfi,aac*
+  --enable-bsf=h264_mp4toannexb,aac_adtstoasc,aac*
   --enable-encoder=mp4,gif,mov,libx264,mpeg*,mov,gif,h264,aac*,libfdk_aac
   --enable-decoder=rawvideo,hevc,aac*,h264,mp3,mp4,mpeg*,gif,libfdk_aac
   --enable-parser=ac3,aac*,flac,h264,mpeg*,vorbis,vp8,vp9,gif
   # mov demuxer/muxer adds: mov,mp4,m4a,3gp,3g2,mj2
-  --enable-demuxer=mov,gif,matroska,image2
-  --enable-muxer=mp4,gif,mov
+  --enable-demuxer=mov,gif,matroska,image2,aac*
+  --enable-muxer=mp4,gif,mov,aac*
   --enable-protocol=file
   --enable-filter=scale,overlay,fps,movie
 )

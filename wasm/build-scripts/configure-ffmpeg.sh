@@ -5,7 +5,6 @@ source $(dirname $0)/var.sh
 
 FLAGS=(
   "${FFMPEG_CONFIG_FLAGS_BASE[@]}"
-  --disable-everything
   --disable-network
   --disable-autodetect
   --disable-debug

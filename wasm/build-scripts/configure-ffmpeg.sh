@@ -5,7 +5,7 @@ source $(dirname $0)/var.sh
 
 FLAGS=(
   "${FFMPEG_CONFIG_FLAGS_BASE[@]}"
-  --disable-everything
+  # --disable-everything
   --disable-network
   --disable-debug
   --disable-ffplay
@@ -30,16 +30,19 @@ FLAGS=(
   --enable-libass         # enable libass
   --enable-libfribidi     # enable libfribidi
 
-  --enable-indev=lavfi
-  --enable-bsf=h264_mp4toannexb,aac_adtstoasc
-  --enable-parser=h264
-  --enable-encoder=mpeg4,mov,gif,h264,libx264,rawvideo
-  --enable-decoder=rawvideo,aac*,h264,mp3,mp4,mpeg*,gif,aac*,ac3*,opus,vorbis
-  # mov demuxer/muxer adds: mov,mp4,m4a,3gp,3g2,mj2
-  --enable-demuxer=mov,gif,matroska,image2,m4v
-  --enable-muxer=mp4,gif,mov,rawvideo
-  --enable-protocol=file
-  --enable-filter=scale,overlay,fps,movie
+  # --enable-avdevice       # enable avdevice for anullsrc
+  # --enable-libavfilter    # enable libavfilter for lavfi
+
+  # --enable-indev=lavfi
+  # --enable-bsf=h264_mp4toannexb,aac_adtstoasc
+  # --enable-parser=h264
+  # --enable-encoder=mpeg4,mov,gif,h264,libx264,rawvideo
+  # --enable-decoder=rawvideo,aac*,h264,mp3,mp4,mpeg*,gif,aac*,ac3*,opus,vorbis
+  # # mov demuxer/muxer adds: mov,mp4,m4a,3gp,3g2,mj2
+  # --enable-demuxer=mov,gif,matroska,image2,m4v
+  # --enable-muxer=mp4,gif,mov,rawvideo
+  # --enable-protocol=file
+  # --enable-filter=scale,overlay,fps,movie,anullsrc
 )
 echo "FFMPEG_CONFIG_FLAGS=${FLAGS[@]}"
 

@@ -14,6 +14,7 @@ FLAGS=(
   --disable-doc
 
   # --enable-small          # optimize for size instead of speed
+  --enable-shared         # enable building shared library
   --enable-gpl            # required by x264
   --enable-nonfree        # required by fdk-aac
   --enable-zlib           # enable zlib

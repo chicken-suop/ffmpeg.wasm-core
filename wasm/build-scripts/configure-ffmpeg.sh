@@ -49,5 +49,15 @@ FLAGS=(
 )
 echo "FFMPEG_CONFIG_FLAGS=${FLAGS[@]}"
 
-emconfigure ./configure --help
+emconfigure ./configure --list-decoders          # show all available decoders
+emconfigure ./configure --list-encoders          # show all available encoders
+emconfigure ./configure --list-hwaccels          # show all available hardware accelerators
+emconfigure ./configure --list-demuxers          # show all available demuxers
+emconfigure ./configure --list-muxers            # show all available muxers
+emconfigure ./configure --list-parsers           # show all available parsers
+emconfigure ./configure --list-protocols         # show all available protocols
+emconfigure ./configure --list-bsfs              # show all available bitstream filters
+emconfigure ./configure --list-indevs            # show all available input devices
+emconfigure ./configure --list-outdevs           # show all available output devices
+emconfigure ./configure --list-filters           # show all available filters
 emconfigure ./configure "${FLAGS[@]}"

@@ -32,32 +32,22 @@ FLAGS=(
   --enable-ffmpeg
   --enable-avcodec
   --enable-avformat
+  --enable-avfilter
   --enable-avutil
   --enable-swresample
   --enable-swscale
-  --enable-avfilter
-  --enable-indev=lavfi
 
+  --enable-indev=lavfi
   --enable-bsf=h264_mp4toannexb,aac_adtstoasc
-  --enable-encoder=libx264,mpeg4,mov,gif,h264,aac
-  --enable-decoder=rawvideo,hevc,h264,mpeg4,gif,aac
-  --enable-parser=mpeg4video,mpegaudio,gif,aac
-  --enable-demuxer=mov,gif,concat,image2,image2pipe,mpegps
+  --enable-encoder=mp4,gif,mov,libx264,mpeg*,mov,gif,h264,aac*
+  --enable-decoder=rawvideo,hevc,aac*,h264,mp3,mp4,mpeg*,gif
+  --enable-parser=ac3,aac*,flac,h264,mpeg*,vorbis,vp8,vp9,gif
+  # mov demuxer/muxer adds: mov,mp4,m4a,3gp,3g2,mj2
+  --enable-demuxer=mov,gif,matroska,image2
   --enable-muxer=mp4,gif,mov
   --enable-protocol=file
   --enable-filter=scale,overlay,fps,movie
 )
 echo "FFMPEG_CONFIG_FLAGS=${FLAGS[@]}"
 
-emconfigure ./configure --list-decoders          # show all available decoders
-emconfigure ./configure --list-encoders          # show all available encoders
-emconfigure ./configure --list-hwaccels          # show all available hardware accelerators
-emconfigure ./configure --list-demuxers          # show all available demuxers
-emconfigure ./configure --list-muxers            # show all available muxers
-emconfigure ./configure --list-parsers           # show all available parsers
-emconfigure ./configure --list-protocols         # show all available protocols
-emconfigure ./configure --list-bsfs              # show all available bitstream filters
-emconfigure ./configure --list-indevs            # show all available input devices
-emconfigure ./configure --list-outdevs           # show all available output devices
-emconfigure ./configure --list-filters           # show all available filters
 emconfigure ./configure "${FLAGS[@]}"

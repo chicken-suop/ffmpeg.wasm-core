@@ -1,0 +1,16 @@
+aac                     dvdsub                  opus
+aac_latm                flac                    png
+ac3                     g723_1                  pnm
+adx                     g729                    rv30
+av1                     gif                     rv40
+avs2                    gsm                     sbc
+bmp                     h261                    sipr
+cavsvideo               h263                    tak
+cook                    h264                    vc1
+dca                     hevc                    vorbis
+dirac                   jpeg2000                vp3
+dnxhd                   mjpeg                   vp8
+dpx                     mlp                     vp9
+dvaudio                 mpeg4video              webp
+dvbsub                  mpegaudio               xma
+dvd_nav                 mpegvideo

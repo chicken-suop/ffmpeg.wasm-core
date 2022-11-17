@@ -5,8 +5,9 @@ source $(dirname $0)/var.sh
 
 FLAGS=(
   "${FFMPEG_CONFIG_FLAGS_BASE[@]}"
-  # --disable-everything
+  --disable-everything
   --disable-network
+  --disable-autodetect
   --disable-debug
   --disable-ffplay
   --disable-ffprobe
@@ -29,20 +30,26 @@ FLAGS=(
   --enable-libwebp        # enable libwebp
   --enable-libass         # enable libass
   --enable-libfribidi     # enable libfribidi
+  --enable-avdevice       # enable lavfi and anullsrc
 
-  # --enable-avdevice       # enable avdevice for anullsrc
-  # --enable-libavfilter    # enable libavfilter for lavfi
+  --enable-ffmpeg
+  --enable-avcodec
+  --enable-avformat
+  --enable-avfilter
+  --enable-avutil
+  --enable-swresample
+  --enable-swscale
 
-  # --enable-indev=lavfi
-  # --enable-bsf=h264_mp4toannexb,aac_adtstoasc
-  # --enable-parser=h264
-  # --enable-encoder=mpeg4,mov,gif,h264,libx264,rawvideo
-  # --enable-decoder=rawvideo,aac*,h264,mp3,mp4,mpeg*,gif,aac*,ac3*,opus,vorbis
-  # # mov demuxer/muxer adds: mov,mp4,m4a,3gp,3g2,mj2
-  # --enable-demuxer=mov,gif,matroska,image2,m4v
-  # --enable-muxer=mp4,gif,mov,rawvideo
-  # --enable-protocol=file
-  # --enable-filter=scale,overlay,fps,movie,anullsrc
+  --enable-indev=lavfi
+  --enable-bsf=h264_mp4toannexb,aac_adtstoasc
+  --enable-encoder=mp4,gif,mov,libx264,mpeg*,mov,gif,h264,aac*,libfdk_aac
+  --enable-decoder=rawvideo,hevc,aac*,h264,mp3,mp4,mpeg*,gif,libfdk_aac
+  --enable-parser=ac3,aac*,flac,h264,mpeg*,vorbis,vp8,vp9,gif
+  # mov demuxer/muxer adds: mov,mp4,m4a,3gp,3g2,mj2
+  --enable-demuxer=mov,gif,matroska,image2
+  --enable-muxer=mp4,gif,mov
+  --enable-protocol=file
+  --enable-filter=scale,overlay,fps,movie
 )
 echo "FFMPEG_CONFIG_FLAGS=${FLAGS[@]}"
 

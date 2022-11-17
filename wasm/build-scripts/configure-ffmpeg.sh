@@ -10,7 +10,7 @@ FLAGS=(
   --disable-network
   --disable-swscale
 
-  --enable-small          # optimize for size instead of speed
+  # --enable-small          # optimize for size instead of speed
   --enable-gpl            # required by x264
   --enable-nonfree        # required by fdk-aac
   --enable-zlib           # enable zlib

@@ -15,6 +15,12 @@ CONF_FLAGS=(
   --enable-static               # enable building static library
   --disable-cli                 # disable cli tools
   --disable-asm                 # disable asm optimization
+  --disable-opencl
+  --disable-avs
+  --disable-ffms
+  --disable-gpac
+  --disable-lavf
+  --disable-swscale
   --extra-cflags="$CFLAGS"      # flags to use pthread and code optimization
   ${EXTRA_CONF_FLAGS-}
 )

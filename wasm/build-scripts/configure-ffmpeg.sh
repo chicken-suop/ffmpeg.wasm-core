@@ -6,9 +6,8 @@ source $(dirname $0)/var.sh
 FLAGS=(
   "${FFMPEG_CONFIG_FLAGS_BASE[@]}"
   --disable-all
-  --disable-everything
   --disable-network
-  --disable-swscale
+  --disable-autodetect
 
   # --enable-small          # optimize for size instead of speed
   --enable-gpl            # required by x264

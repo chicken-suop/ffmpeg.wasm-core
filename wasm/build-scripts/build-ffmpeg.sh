@@ -21,6 +21,7 @@ else
 		-s INITIAL_MEMORY=536870912                  # 512 MB
 		-s MAXIMUM_MEMORY=4294967296                 # 4096 MB (4 GB)
 		-s ALLOW_MEMORY_GROWTH=1
+    -s MEMORY_GROWTH_GEOMETRIC_STEP=0.5
   )
 fi
 FLAGS=(
@@ -38,8 +39,8 @@ FLAGS=(
   -s EXPORTED_FUNCTIONS="$EXPORTED_FUNCTIONS"  # export main and proxy_main funcs
   -s EXTRA_EXPORTED_RUNTIME_METHODS="[FS, cwrap, ccall, setValue, writeAsciiToMemory, lengthBytesUTF8, stringToUTF8, UTF8ToString]"   # export preamble funcs
   -s ASSERTIONS=1
+  -g0                                           # Make no effort to keep code debuggable
   --pre-js wasm/src/pre.js
-  --post-js wasm/src/post.js
   $OPTIM_FLAGS
   ${EXTRA_FLAGS[@]}
 )

@@ -39,7 +39,7 @@ FLAGS=(
 
   --enable-indev=lavfi
   --enable-bsf=h264_mp4toannexb,aac_adtstoasc
-  --enable-encoder=mp4,gif,mov,libx264,mpeg*,mov,gif,h264,aac*
+  --enable-encoders
   --enable-decoder=rawvideo,hevc,aac*,h264,mp3,mp4,mpeg*,gif
   --enable-parser=ac3,aac*,flac,h264,mpeg*,vorbis,vp8,vp9,gif
   # mov demuxer/muxer adds: mov,mp4,m4a,3gp,3g2,mj2

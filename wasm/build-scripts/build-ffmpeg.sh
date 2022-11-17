@@ -11,15 +11,15 @@ if [[ "$FFMPEG_ST" != "yes" ]]; then
     -s USE_PTHREADS=1                             # enable pthreads support
     -s PROXY_TO_PTHREAD=1                         # detach main() from browser/UI main thread
     -o wasm/packages/core/dist/ffmpeg-core.js
-		-s INITIAL_MEMORY=4294967296                  # 1GB
+		-s INITIAL_MEMORY=1073741824                  # 1024MB (must be less than 2048MB)
   )
 else
   mkdir -p wasm/packages/core-st/dist
   EXPORTED_FUNCTIONS="[_main]"
   EXTRA_FLAGS=(
     -o wasm/packages/core-st/dist/ffmpeg-core.js
-		-s INITIAL_MEMORY=536870912                  # 512 MB
-		-s MAXIMUM_MEMORY=4294967296                 # 4096 MB (4 GB)
+		-s INITIAL_MEMORY=536870912                  # 512MB
+		-s MAXIMUM_MEMORY=4294967296                 # 4096MB
 		-s ALLOW_MEMORY_GROWTH=1
   )
 fi

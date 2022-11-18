@@ -19,12 +19,12 @@ FLAGS=(
   --enable-swresample
   --enable-swscale
 
-  --enable-decoder=aac*,h264
-  --enable-encoder=aac,libx264
+  --enable-decoder=aac,aac_latm,h264,mp3,mpeg4,rawvideo
+  --enable-encoder=aac,h264,libx264,mpeg4
   --enable-protocol=file
-  --enable-demuxer=aac,h264,mov
+  --enable-demuxer=aac,h264,mov,m4v,mp3,wav
   --enable-muxer=mp4,h264
-  --enable-parser=aac,h264
+  --enable-parser=aac,h264,mpeg4video
   --enable-bsf=aac_adtstoasc
   --enable-filter=fps,split,palettegen,fifo,paletteuse,scale,overlay
 )

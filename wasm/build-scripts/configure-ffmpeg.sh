@@ -6,17 +6,18 @@ source $(dirname $0)/var.sh
 FLAGS=(
   "${FFMPEG_CONFIG_FLAGS_BASE[@]}"
   --disable-all
-  --enable-shared
   --enable-nonfree        # required for libfdk_aac
   --enable-gpl            # required by x264
   --enable-libx264        # enable x264
   --enable-libfdk-aac     # enable fdk-aac
 
+  --enable-avdevice
+  --enable-avutil
   --enable-avcodec        # enable native AAC decoder
-  --enable-avformat       # Presumably needed
-  --enable-avfilter       # Presumably needed
-  --enable-swresample     # Presumably needed
-  --enable-swscale        # Presumably needed
+  --enable-avformat
+  --enable-avfilter
+  --enable-swresample
+  --enable-swscale
 
   --enable-decoder=aac*,h264
   --enable-encoder=aac,libx264

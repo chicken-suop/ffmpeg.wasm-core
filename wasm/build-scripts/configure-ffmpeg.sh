@@ -22,7 +22,7 @@ FLAGS=(
 
   --enable-decoder=aac,h264,mp3,mpeg4,rawvideo,mjpeg,png
   --enable-encoder=aac,h264,libx264,mpeg4
-  --enable-protocol=file
+  --enable-protocol=file,pipe
   --enable-demuxer=aac,h264,mov,m4v,mp3,wav,image2
   --enable-muxer=mp4,h264
   --enable-parser=aac,h264,mpeg4video

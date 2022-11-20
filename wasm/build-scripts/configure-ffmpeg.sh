@@ -28,7 +28,7 @@ FLAGS=(
   --enable-muxer=mp4,h264
   --enable-parser=aac,h264,mpeg4video
   --enable-bsf=aac_adtstoasc
-  --enable-filter=fps,split,palettegen,fifo,paletteuse,scale,overlay,apad,anullsrc
+  --enable-filter=fps,split,palettegen,fifo,paletteuse,scale,overlay,apad,anull
 )
 echo "FFMPEG_CONFIG_FLAGS=${FLAGS[@]}"
 

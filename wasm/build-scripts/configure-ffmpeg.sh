@@ -21,7 +21,7 @@ FLAGS=(
   --enable-swscale
   --enable-indev=lavfi
 
-  --enable-decoder=aac,h264,mp3,mpeg4,rawvideo,mjpeg,png
+  --enable-decoder=aac,h264,mp3,mpeg4,rawvideo,mjpeg,png,pcm_u8
   --enable-encoder=aac,h264,libx264,mpeg4
   --enable-protocol=file,pipe # pipe is used by progress
   --enable-demuxer=aac,h264,mov,m4v,mp3,wav,image2,pcm_u8

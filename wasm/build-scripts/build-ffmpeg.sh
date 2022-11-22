@@ -38,6 +38,7 @@ FLAGS=(
   -s EXPORTED_FUNCTIONS="$EXPORTED_FUNCTIONS"  # export main and proxy_main funcs
   -s EXTRA_EXPORTED_RUNTIME_METHODS="[FS, cwrap, ccall, setValue, writeAsciiToMemory, lengthBytesUTF8, stringToUTF8, UTF8ToString]"   # export preamble funcs
   -s ASSERTIONS=1
+  -s ERROR_ON_UNDEFINED_SYMBOLS=0
   -g0                                           # Make no effort to keep code debuggable
   --pre-js wasm/src/pre.js
   $OPTIM_FLAGS

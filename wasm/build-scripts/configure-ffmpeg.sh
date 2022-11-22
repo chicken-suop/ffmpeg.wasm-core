@@ -5,6 +5,7 @@ source $(dirname $0)/var.sh
 
 FLAGS=(
   "${FFMPEG_CONFIG_FLAGS_BASE[@]}"
+
   --enable-nonfree        # required for libfdk_aac
   --enable-gpl            # required by x264
   --enable-libx264        # enable x264
